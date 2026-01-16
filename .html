@@ -2,113 +2,177 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>初三4 班级职务名单</title>
+<title>初三4 班级名单（可搜索）</title>
 <style>
 body{
   font-family: "Microsoft YaHei", sans-serif;
-  background:#f5f7fa;
+  background:#f4f6f9;
   padding:20px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
 }
 
 h1{
   text-align:center;
-  color:#333;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
+.search-box{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
+
+input{
+  flex:1;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+
+button{
+  padding:12px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn-main{background:#2563eb;color:white;}
+.btn-light{background:white;border:1px solid #ccc;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:15px;
+}
+
+.card{
   background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-th,td{
-  padding:10px;
-  text-align:center;
-  border-bottom:1px solid #ddd;
-}
+.card h3{margin:5px 0;}
+.card p{color:#555;}
 
-th{
-  background:#4a90e2;
-  color:white;
-}
-
-tr:hover{
-  background:#f1f1f1;
+.card button{
+  margin-top:8px;
+  margin-right:5px;
 }
 </style>
 </head>
 <body>
 
-<h1>初三4 班级职务名单</h1>
+<div class="container">
 
-<table>
-<tr>
-<th>序号</th>
-<th>姓名</th>
-<th>学号</th>
-<th>职务</th>
-</tr>
+<h1>初三4 — 班级名单（可搜：学号/姓名）</h1>
 
-<tr><td>1</td><td>邱穆芸</td><td>242154</td><td>副文书</td></tr>
-<tr><td>2</td><td>陈妍希</td><td>242159</td><td>副美术</td></tr>
-<tr><td>3</td><td>张芷欣</td><td>242156</td><td>副国文</td></tr>
-<tr><td>4</td><td>杨时瑜</td><td>242149</td><td>正图书</td></tr>
-<tr><td>5</td><td>颜姿彤</td><td>242163</td><td>正科学</td></tr>
-<tr><td>6</td><td>许亦萱</td><td>242153</td><td>副科学</td></tr>
-<tr><td>7</td><td>陈嘉恩</td><td>242168</td><td>副辅导</td></tr>
-<tr><td>8</td><td>陈钏宁</td><td>242155</td><td>正壁报</td></tr>
-<tr><td>9</td><td>李静恩</td><td>242158</td><td>正数学</td></tr>
-<tr><td>10</td><td>李开心</td><td>240009</td><td>-</td></tr>
+<div class="search-box">
+<input id="search" placeholder="输入学号或姓名">
+<button class="btn-main" onclick="search()">搜索</button>
+<button class="btn-light" onclick="reset()">显示全部</button>
+</div>
 
-<tr><td>11</td><td>刘瑞恩</td><td>242160</td><td>副壁报</td></tr>
-<tr><td>12</td><td>黄禹嫣</td><td>242164</td><td>副财政</td></tr>
-<tr><td>13</td><td>妮娅</td><td>242166</td><td>正财政</td></tr>
-<tr><td>14</td><td>陈姿卉</td><td>242162</td><td>正辅导</td></tr>
-<tr><td>15</td><td>何汶宣</td><td>242165</td><td>副地理</td></tr>
-<tr><td>16</td><td>王歆茹</td><td>242151</td><td>-</td></tr>
+<p id="count"></p>
 
-<tr><td>17</td><td>潘姿颖</td><td>242147</td><td>正美术</td></tr>
-<tr><td>18</td><td>施凯馨</td><td>242150</td><td>正地理</td></tr>
-<tr><td>19</td><td>陈渝恩</td><td>242148</td><td>副班长</td></tr>
-<tr><td>20</td><td>戴湘霖</td><td>242157</td><td>正文书</td></tr>
+<div class="grid" id="list"></div>
 
-<tr><td>21</td><td>王婧涵</td><td>242152</td><td>正国文</td></tr>
-<tr><td>22</td><td>许悦影</td><td>242167</td><td>-</td></tr>
-<tr><td>23</td><td>朱俊绅</td><td>242189</td><td>副数学</td></tr>
-<tr><td>24</td><td>陈毅祥</td><td>242177</td><td>正卫生</td></tr>
-<tr><td>25</td><td>谢承邑</td><td>242190</td><td>正电脑</td></tr>
+</div>
 
-<tr><td>26</td><td>张智勇</td><td>242176</td><td>正历史</td></tr>
-<tr><td>27</td><td>何凯旭</td><td>242173</td><td>副体育</td></tr>
-<tr><td>28</td><td>赖家禾</td><td>242194</td><td>副媒体</td></tr>
-<tr><td>29</td><td>江致承</td><td>242171</td><td>-</td></tr>
-<tr><td>30</td><td>刘俊祥</td><td>242186</td><td>副服务</td></tr>
+<script>
+const students=[
+{no:1,name:"邱穆芸",id:"242154"},
+{no:2,name:"陈妍希",id:"242159"},
+{no:3,name:"张芷欣",id:"242156"},
+{no:4,name:"杨时瑜",id:"242149"},
+{no:5,name:"颜姿彤",id:"242163"},
+{no:6,name:"许亦萱",id:"242153"},
+{no:7,name:"陈嘉恩",id:"242168"},
+{no:8,name:"陈钏宁",id:"242155"},
+{no:9,name:"李静恩",id:"242158"},
+{no:10,name:"李开心",id:"240009"},
+{no:11,name:"刘瑞恩",id:"242160"},
+{no:12,name:"黄禹嫣",id:"242164"},
+{no:13,name:"妮娅",id:"242166"},
+{no:14,name:"陈姿卉",id:"242162"},
+{no:15,name:"何汶宣",id:"242165"},
+{no:16,name:"王歆茹",id:"242151"},
+{no:17,name:"潘姿颖",id:"242147"},
+{no:18,name:"施凯馨",id:"242150"},
+{no:19,name:"陈渝恩",id:"242148"},
+{no:20,name:"戴湘霖",id:"242157"},
+{no:21,name:"王婧涵",id:"242152"},
+{no:22,name:"许悦影",id:"242167"},
+{no:23,name:"朱俊绅",id:"242189"},
+{no:24,name:"陈毅祥",id:"242177"},
+{no:25,name:"谢承邑",id:"242190"},
+{no:26,name:"张智勇",id:"242176"},
+{no:27,name:"何凯旭",id:"242173"},
+{no:28,name:"赖家禾",id:"242194"},
+{no:29,name:"江致承",id:"242171"},
+{no:30,name:"刘俊祥",id:"242186"},
+{no:31,name:"卢隽益",id:"242187"},
+{no:32,name:"刘宽辅",id:"242170"},
+{no:33,name:"卢裕城",id:"242188"},
+{no:34,name:"黄康桀",id:"242191"},
+{no:35,name:"伍思源",id:"242180"},
+{no:36,name:"彭宇乐",id:"242181"},
+{no:37,name:"潘家扬",id:"242169"},
+{no:38,name:"陈晋佑",id:"242178"},
+{no:39,name:"陈有权",id:"242182"},
+{no:40,name:"余根权",id:"242175"},
+{no:41,name:"黄凯杰",id:"242192"},
+{no:42,name:"黄恩杰",id:"242183"},
+{no:43,name:"黄俊熹",id:"242193"},
+{no:44,name:"黄明杰",id:"242185"},
+{no:45,name:"叶峻睿",id:"242174"},
+{no:46,name:"叶礼诚",id:"242172"},
+{no:47,name:"杨仁喆",id:"242184"}
+];
 
-<tr><td>31</td><td>卢隽益</td><td>242187</td><td>正班长</td></tr>
-<tr><td>32</td><td>刘宽辅</td><td>242170</td><td>副华文</td></tr>
-<tr><td>33</td><td>卢裕城</td><td>242188</td><td>副风纪</td></tr>
-<tr><td>34</td><td>黄康桀</td><td>242191</td><td>正服务</td></tr>
-<tr><td>35</td><td>伍思源</td><td>242180</td><td>正华文</td></tr>
+function render(list){
+document.getElementById("count").innerText=
+"找到 "+list.length+" 位学生";
 
-<tr><td>36</td><td>彭宇乐</td><td>242181</td><td>副历史</td></tr>
-<tr><td>37</td><td>潘家扬</td><td>242169</td><td>副英文</td></tr>
-<tr><td>38</td><td>陈晋佑</td><td>242178</td><td>副电脑</td></tr>
-<tr><td>39</td><td>陈有权</td><td>242182</td><td>副卫生</td></tr>
-<tr><td>40</td><td>余根权</td><td>242175</td><td>正体育</td></tr>
+let html="";
+list.forEach(s=>{
+html+=`
+<div class="card">
+<b>学号：${s.no}</b>
+<h3>${s.name}</h3>
+<p>学生号：${s.id}</p>
 
-<tr><td>41</td><td>黄凯杰</td><td>242192</td><td>正英文</td></tr>
-<tr><td>42</td><td>黄恩杰</td><td>242183</td><td>副图书</td></tr>
-<tr><td>43</td><td>黄俊熹</td><td>242193</td><td>正环保</td></tr>
-<tr><td>44</td><td>黄明杰</td><td>242185</td><td>正风纪</td></tr>
-<tr><td>45</td><td>叶峻睿</td><td>242174</td><td>副环保</td></tr>
+<button onclick="copy('${s.name} ${s.id}')">复制信息</button>
+<button onclick="copy('${s.id}')">复制学号</button>
+<button onclick="alert(location.href+'#'+s.id)">获取链接</button>
+</div>`;
+});
+document.getElementById("list").innerHTML=html;
+}
 
-<tr><td>46</td><td>叶礼诚</td><td>242172</td><td>正媒体</td></tr>
-<tr><td>47</td><td>杨仁喆</td><td>242184</td><td>-</td></tr>
+function search(){
+let v=document.getElementById("search").value;
+let res=students.filter(s=>
+s.name.includes(v)||s.id.includes(v)
+);
+render(res);
+}
 
-</table>
+function reset(){
+render(students);
+}
+
+function copy(text){
+navigator.clipboard.writeText(text);
+alert("已复制: "+text);
+}
+
+render(students);
+</script>
 
 </body>
 </html>
