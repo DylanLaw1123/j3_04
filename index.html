@@ -1,114 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>初三4 班级职务名单</title>
+<title>j3_04 Student List</title>
+
 <style>
 body{
-  font-family: "Microsoft YaHei", sans-serif;
-  background:#f5f7fa;
+  font-family: Arial;
+  background:#f4f6f9;
   padding:20px;
 }
 
-h1{
-  text-align:center;
-  color:#333;
-}
+h1{text-align:center;}
 
-table{
+input{
   width:100%;
-  border-collapse:collapse;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+  margin:15px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:15px;
+}
+
+.card{
   background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-th,td{
-  padding:10px;
-  text-align:center;
-  border-bottom:1px solid #ddd;
-}
-
-th{
-  background:#4a90e2;
-  color:white;
-}
-
-tr:hover{
-  background:#f1f1f1;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,0.05);
 }
 </style>
 </head>
 <body>
 
-<h1>初三4 班级职务名单</h1>
+<h1>j3_04 Student List</h1>
 
-<table>
-<tr>
-<th>序号</th>
-<th>姓名</th>
-<th>学号</th>
-<th>职务</th>
-</tr>
+<input id="search" placeholder="Search name or ID..." onkeyup="search()">
 
-<tr><td>1</td><td>邱穆芸</td><td>242154</td><td>副文书</td></tr>
-<tr><td>2</td><td>陈妍希</td><td>242159</td><td>副美术</td></tr>
-<tr><td>3</td><td>张芷欣</td><td>242156</td><td>副国文</td></tr>
-<tr><td>4</td><td>杨时瑜</td><td>242149</td><td>正图书</td></tr>
-<tr><td>5</td><td>颜姿彤</td><td>242163</td><td>正科学</td></tr>
-<tr><td>6</td><td>许亦萱</td><td>242153</td><td>副科学</td></tr>
-<tr><td>7</td><td>陈嘉恩</td><td>242168</td><td>副辅导</td></tr>
-<tr><td>8</td><td>陈钏宁</td><td>242155</td><td>正壁报</td></tr>
-<tr><td>9</td><td>李静恩</td><td>242158</td><td>正数学</td></tr>
-<tr><td>10</td><td>李开心</td><td>240009</td><td>-</td></tr>
+<div class="grid" id="list"></div>
 
-<tr><td>11</td><td>刘瑞恩</td><td>242160</td><td>副壁报</td></tr>
-<tr><td>12</td><td>黄禹嫣</td><td>242164</td><td>副财政</td></tr>
-<tr><td>13</td><td>妮娅</td><td>242166</td><td>正财政</td></tr>
-<tr><td>14</td><td>陈姿卉</td><td>242162</td><td>正辅导</td></tr>
-<tr><td>15</td><td>何汶宣</td><td>242165</td><td>副地理</td></tr>
-<tr><td>16</td><td>王歆茹</td><td>242151</td><td>-</td></tr>
+<script>
+const students=[
+{name:"Qiu Muyun",id:"242154"},
+{name:"Chen Yanxi",id:"242159"},
+{name:"Zhang Zhixin",id:"242156"},
+{name:"Yang Shiyu",id:"242149"},
+{name:"Yan Zitong",id:"242163"}
+];
 
-<tr><td>17</td><td>潘姿颖</td><td>242147</td><td>正美术</td></tr>
-<tr><td>18</td><td>施凯馨</td><td>242150</td><td>正地理</td></tr>
-<tr><td>19</td><td>陈渝恩</td><td>242148</td><td>副班长</td></tr>
-<tr><td>20</td><td>戴湘霖</td><td>242157</td><td>正文书</td></tr>
+function render(list){
+let html="";
+list.forEach(s=>{
+html+=`
+<div class="card">
+<b>${s.name}</b><br>
+ID: ${s.id}
+</div>`;
+});
+document.getElementById("list").innerHTML=html;
+}
 
-<tr><td>21</td><td>王婧涵</td><td>242152</td><td>正国文</td></tr>
-<tr><td>22</td><td>许悦影</td><td>242167</td><td>-</td></tr>
-<tr><td>23</td><td>朱俊绅</td><td>242189</td><td>副数学</td></tr>
-<tr><td>24</td><td>陈毅祥</td><td>242177</td><td>正卫生</td></tr>
-<tr><td>25</td><td>谢承邑</td><td>242190</td><td>正电脑</td></tr>
+function search(){
+let v=document.getElementById("search").value.toLowerCase();
+let res=students.filter(s=>
+s.name.toLowerCase().includes(v) ||
+s.id.includes(v)
+);
+render(res);
+}
 
-<tr><td>26</td><td>张智勇</td><td>242176</td><td>正历史</td></tr>
-<tr><td>27</td><td>何凯旭</td><td>242173</td><td>副体育</td></tr>
-<tr><td>28</td><td>赖家禾</td><td>242194</td><td>副媒体</td></tr>
-<tr><td>29</td><td>江致承</td><td>242171</td><td>-</td></tr>
-<tr><td>30</td><td>刘俊祥</td><td>242186</td><td>副服务</td></tr>
-
-<tr><td>31</td><td>卢隽益</td><td>242187</td><td>正班长</td></tr>
-<tr><td>32</td><td>刘宽辅</td><td>242170</td><td>副华文</td></tr>
-<tr><td>33</td><td>卢裕城</td><td>242188</td><td>副风纪</td></tr>
-<tr><td>34</td><td>黄康桀</td><td>242191</td><td>正服务</td></tr>
-<tr><td>35</td><td>伍思源</td><td>242180</td><td>正华文</td></tr>
-
-<tr><td>36</td><td>彭宇乐</td><td>242181</td><td>副历史</td></tr>
-<tr><td>37</td><td>潘家扬</td><td>242169</td><td>副英文</td></tr>
-<tr><td>38</td><td>陈晋佑</td><td>242178</td><td>副电脑</td></tr>
-<tr><td>39</td><td>陈有权</td><td>242182</td><td>副卫生</td></tr>
-<tr><td>40</td><td>余根权</td><td>242175</td><td>正体育</td></tr>
-
-<tr><td>41</td><td>黄凯杰</td><td>242192</td><td>正英文</td></tr>
-<tr><td>42</td><td>黄恩杰</td><td>242183</td><td>副图书</td></tr>
-<tr><td>43</td><td>黄俊熹</td><td>242193</td><td>正环保</td></tr>
-<tr><td>44</td><td>黄明杰</td><td>242185</td><td>正风纪</td></tr>
-<tr><td>45</td><td>叶峻睿</td><td>242174</td><td>副环保</td></tr>
-
-<tr><td>46</td><td>叶礼诚</td><td>242172</td><td>正媒体</td></tr>
-<tr><td>47</td><td>杨仁喆</td><td>242184</td><td>-</td></tr>
-
-</table>
+render(students);
+</script>
 
 </body>
 </html>
