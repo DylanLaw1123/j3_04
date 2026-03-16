@@ -2,113 +2,146 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>初三4 班级职务名单</title>
+<title>初三4 班级名单</title>
+
 <style>
+
 body{
-  font-family: "Microsoft YaHei", sans-serif;
-  background:#f5f7fa;
-  padding:20px;
+font-family:"Microsoft YaHei",sans-serif;
+background:#f5f7fa;
+padding:20px;
 }
 
 h1{
-  text-align:center;
-  color:#333;
+text-align:center;
+margin-bottom:20px;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+#search{
+width:100%;
+padding:12px;
+font-size:16px;
+border-radius:10px;
+border:1px solid #ccc;
+margin-bottom:25px;
 }
 
-th,td{
-  padding:10px;
-  text-align:center;
-  border-bottom:1px solid #ddd;
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
 }
 
-th{
-  background:#4a90e2;
-  color:white;
+.card{
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
 }
 
-tr:hover{
-  background:#f1f1f1;
+.qing{
+color:#e67e22;
+font-weight:bold;
 }
+
 </style>
+
 </head>
+
 <body>
 
-<h1>初三4 班级职务名单</h1>
+<h1>初三4 班级名单</h1>
 
-<table>
-<tr>
-<th>序号</th>
-<th>姓名</th>
-<th>学号</th>
-<th>职务</th>
-</tr>
+<input id="search" type="text" placeholder="搜索 姓名 / 学号 / 职务 / 校庆职位">
 
-<tr><td>1</td><td>邱穆芸</td><td>242154</td><td>副文书</td></tr>
-<tr><td>2</td><td>陈妍希</td><td>242159</td><td>副美术</td></tr>
-<tr><td>3</td><td>张芷欣</td><td>242156</td><td>副国文</td></tr>
-<tr><td>4</td><td>杨时瑜</td><td>242149</td><td>正图书</td></tr>
-<tr><td>5</td><td>颜姿彤</td><td>242163</td><td>正科学</td></tr>
-<tr><td>6</td><td>许亦萱</td><td>242153</td><td>副科学</td></tr>
-<tr><td>7</td><td>陈嘉恩</td><td>242168</td><td>副辅导</td></tr>
-<tr><td>8</td><td>陈钏宁</td><td>242155</td><td>正壁报</td></tr>
-<tr><td>9</td><td>李静恩</td><td>242158</td><td>正数学</td></tr>
-<tr><td>10</td><td>李开心</td><td>240009</td><td>-</td></tr>
+<div class="container" id="list">
 
-<tr><td>11</td><td>刘瑞恩</td><td>242160</td><td>副壁报</td></tr>
-<tr><td>12</td><td>黄禹嫣</td><td>242164</td><td>副财政</td></tr>
-<tr><td>13</td><td>妮娅</td><td>242166</td><td>正财政</td></tr>
-<tr><td>14</td><td>陈姿卉</td><td>242162</td><td>正辅导</td></tr>
-<tr><td>15</td><td>何汶宣</td><td>242165</td><td>副地理</td></tr>
-<tr><td>16</td><td>王歆茹</td><td>242151</td><td>-</td></tr>
+<div class="card">序号：1<br><b>邱穆芸</b><br><br>学号：242154<br>职务：副文书<br>校庆：-</div>
+<div class="card">序号：2<br><b>陈妍希</b><br><br>学号：242159<br>职务：副美术<br>校庆：-</div>
+<div class="card">序号：3<br><b>张芷欣</b><br><br>学号：242156<br>职务：副国文<br>校庆：-</div>
+<div class="card">序号：4<br><b>杨时瑜</b><br><br>学号：242149<br>职务：正图书<br>校庆：-</div>
+<div class="card">序号：5<br><b>颜姿彤</b><br><br>学号：242163<br>职务：正科学<br>校庆：-</div>
+<div class="card">序号：6<br><b>许亦萱</b><br><br>学号：242153<br>职务：副科学<br>校庆：-</div>
+<div class="card">序号：7<br><b>陈嘉恩</b><br><br>学号：242168<br>职务：副辅导<br>校庆：-</div>
+<div class="card">序号：8<br><b>陈钏宁</b><br><br>学号：242155<br>职务：正壁报<br>校庆：-</div>
+<div class="card">序号：9<br><b>李静恩</b><br><br>学号：242158<br>职务：正数学<br>校庆：-</div>
+<div class="card">序号：10<br><b>李开心</b><br><br>学号：240009<br>职务：无<br>校庆：-</div>
 
-<tr><td>17</td><td>潘姿颖</td><td>242147</td><td>正美术</td></tr>
-<tr><td>18</td><td>施凯馨</td><td>242150</td><td>正地理</td></tr>
-<tr><td>19</td><td>陈渝恩</td><td>242148</td><td>副班长</td></tr>
-<tr><td>20</td><td>戴湘霖</td><td>242157</td><td>正文书</td></tr>
+<div class="card">序号：11<br><b>刘瑞恩</b><br><br>学号：242160<br>职务：副壁报<br>校庆：-</div>
+<div class="card">序号：12<br><b>黄禹嫣</b><br><br>学号：242164<br>职务：副财政<br>校庆：<span class="qing">校庆财政</span></div>
+<div class="card">序号：13<br><b>妮娅</b><br><br>学号：242166<br>职务：正财政<br>校庆：<span class="qing">校庆副主席</span></div>
+<div class="card">序号：14<br><b>陈姿卉</b><br><br>学号：242162<br>职务：正辅导<br>校庆：-</div>
+<div class="card">序号：15<br><b>何汶宣</b><br><br>学号：242165<br>职务：副地理<br>校庆：-</div>
+<div class="card">序号：16<br><b>王歆茹</b><br><br>学号：242151<br>职务：无<br>校庆：-</div>
 
-<tr><td>21</td><td>王婧涵</td><td>242152</td><td>正国文</td></tr>
-<tr><td>22</td><td>许悦影</td><td>242167</td><td>-</td></tr>
-<tr><td>23</td><td>朱俊绅</td><td>242189</td><td>副数学</td></tr>
-<tr><td>24</td><td>陈毅祥</td><td>242177</td><td>正卫生</td></tr>
-<tr><td>25</td><td>谢承邑</td><td>242190</td><td>正电脑</td></tr>
+<div class="card">序号：17<br><b>潘姿颖</b><br><br>学号：242147<br>职务：正美术<br>校庆：-</div>
+<div class="card">序号：18<br><b>施凯馨</b><br><br>学号：242150<br>职务：正地理<br>校庆：-</div>
+<div class="card">序号：19<br><b>陈渝恩</b><br><br>学号：242148<br>职务：副班长<br>校庆：-</div>
+<div class="card">序号：20<br><b>戴湘霖</b><br><br>学号：242157<br>职务：正文书<br>校庆：-</div>
 
-<tr><td>26</td><td>张智勇</td><td>242176</td><td>正历史</td></tr>
-<tr><td>27</td><td>何凯旭</td><td>242173</td><td>副体育</td></tr>
-<tr><td>28</td><td>赖家禾</td><td>242194</td><td>副媒体</td></tr>
-<tr><td>29</td><td>江致承</td><td>242171</td><td>-</td></tr>
-<tr><td>30</td><td>刘俊祥</td><td>242186</td><td>副服务</td></tr>
+<div class="card">序号：21<br><b>王婧涵</b><br><br>学号：242152<br>职务：正国文<br>校庆：-</div>
+<div class="card">序号：22<br><b>许悦影</b><br><br>学号：242167<br>职务：无<br>校庆：-</div>
+<div class="card">序号：23<br><b>朱俊绅</b><br><br>学号：242189<br>职务：副数学<br>校庆：-</div>
+<div class="card">序号：24<br><b>陈毅祥</b><br><br>学号：242177<br>职务：正卫生<br>校庆：-</div>
+<div class="card">序号：25<br><b>谢承邑</b><br><br>学号：242190<br>职务：正电脑<br>校庆：-</div>
 
-<tr><td>31</td><td>卢隽益</td><td>242187</td><td>正班长</td></tr>
-<tr><td>32</td><td>刘宽辅</td><td>242170</td><td>副华文</td></tr>
-<tr><td>33</td><td>卢裕城</td><td>242188</td><td>副风纪</td></tr>
-<tr><td>34</td><td>黄康桀</td><td>242191</td><td>正服务</td></tr>
-<tr><td>35</td><td>伍思源</td><td>242180</td><td>正华文</td></tr>
+<div class="card">序号：26<br><b>张智勇</b><br><br>学号：242176<br>职务：正历史<br>校庆：-</div>
+<div class="card">序号：27<br><b>何凯旭</b><br><br>学号：242173<br>职务：副体育<br>校庆：-</div>
+<div class="card">序号：28<br><b>赖家禾</b><br><br>学号：242194<br>职务：副媒体<br>校庆：-</div>
 
-<tr><td>36</td><td>彭宇乐</td><td>242181</td><td>副历史</td></tr>
-<tr><td>37</td><td>潘家扬</td><td>242169</td><td>副英文</td></tr>
-<tr><td>38</td><td>陈晋佑</td><td>242178</td><td>副电脑</td></tr>
-<tr><td>39</td><td>陈有权</td><td>242182</td><td>副卫生</td></tr>
-<tr><td>40</td><td>余根权</td><td>242175</td><td>正体育</td></tr>
+<div class="card">序号：29<br><b>江致承</b><br><br>学号：242171<br>职务：无<br>校庆：<span class="qing">校庆总务</span></div>
 
-<tr><td>41</td><td>黄凯杰</td><td>242192</td><td>正英文</td></tr>
-<tr><td>42</td><td>黄恩杰</td><td>242183</td><td>副图书</td></tr>
-<tr><td>43</td><td>黄俊熹</td><td>242193</td><td>正环保</td></tr>
-<tr><td>44</td><td>黄明杰</td><td>242185</td><td>正风纪</td></tr>
-<tr><td>45</td><td>叶峻睿</td><td>242174</td><td>副环保</td></tr>
+<div class="card">序号：30<br><b>刘俊祥</b><br><br>学号：242186<br>职务：副服务<br>校庆：-</div>
 
-<tr><td>46</td><td>叶礼诚</td><td>242172</td><td>正媒体</td></tr>
-<tr><td>47</td><td>杨仁喆</td><td>242184</td><td>-</td></tr>
+<div class="card">序号：31<br><b>卢隽益</b><br><br>学号：242187<br>职务：正班长<br>校庆：<span class="qing">校庆主席</span></div>
 
-</table>
+<div class="card">序号：32<br><b>刘宽辅</b><br><br>学号：242170<br>职务：副华文<br>校庆：-</div>
+<div class="card">序号：33<br><b>卢裕城</b><br><br>学号：242188<br>职务：副风纪<br>校庆：-</div>
+<div class="card">序号：34<br><b>黄康桀</b><br><br>学号：242191<br>职务：正服务<br>校庆：-</div>
+<div class="card">序号：35<br><b>伍思源</b><br><br>学号：242180<br>职务：正华文<br>校庆：-</div>
+
+<div class="card">序号：36<br><b>彭宇乐</b><br><br>学号：242181<br>职务：副历史<br>校庆：-</div>
+<div class="card">序号：37<br><b>潘家扬</b><br><br>学号：242169<br>职务：副英文<br>校庆：-</div>
+<div class="card">序号：38<br><b>陈晋佑</b><br><br>学号：242178<br>职务：副电脑<br>校庆：-</div>
+<div class="card">序号：39<br><b>陈有权</b><br><br>学号：242182<br>职务：副卫生<br>校庆：-</div>
+
+<div class="card">序号：40<br><b>余根权</b><br><br>学号：242175<br>职务：正体育<br>校庆：<span class="qing">校庆文宣</span></div>
+
+<div class="card">序号：41<br><b>黄凯杰</b><br><br>学号：242192<br>职务：正英文<br>校庆：-</div>
+<div class="card">序号：42<br><b>黄恩杰</b><br><br>学号：242183<br>职务：副图书<br>校庆：-</div>
+<div class="card">序号：43<br><b>黄俊熹</b><br><br>学号：242193<br>职务：正环保<br>校庆：-</div>
+<div class="card">序号：44<br><b>黄明杰</b><br><br>学号：242185<br>职务：正风纪<br>校庆：-</div>
+<div class="card">序号：45<br><b>叶峻睿</b><br><br>学号：242174<br>职务：副环保<br>校庆：-</div>
+
+<div class="card">序号：46<br><b>叶礼诚</b><br><br>学号：242172<br>职务：正媒体<br>校庆：-</div>
+<div class="card">序号：47<br><b>杨仁喆</b><br><br>学号：242184<br>职务：无<br>校庆：-</div>
+
+</div>
+
+<script>
+
+const search=document.getElementById("search");
+const cards=document.querySelectorAll(".card");
+
+search.addEventListener("keyup",function(){
+
+let value=search.value.toLowerCase();
+
+cards.forEach(card=>{
+
+let text=card.innerText.toLowerCase();
+
+if(text.includes(value)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
