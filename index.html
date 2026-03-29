@@ -16,7 +16,6 @@ h1{
   margin-bottom:20px;
 }
 
-/* 🔍 搜索框 */
 #search{
   width:100%;
   padding:12px;
@@ -26,33 +25,33 @@ h1{
   font-size:14px;
 }
 
-/* 📦 卡片布局 */
 .container{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:15px;
 }
 
-/* 🧾 卡片 */
 .card{
   background:white;
   padding:15px;
   border-radius:12px;
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
   position:relative;
+  transition:0.3s;
 }
 
-.card:hover{
-  transform:translateY(-3px);
+/* ⭐ 高亮效果 */
+.card.highlight{
+  border:3px solid #4a90e2;
+  transform:scale(1.03);
+  box-shadow:0 0 20px rgba(74,144,226,0.5);
 }
 
-/* 🏷 标题 */
 .name{
   font-weight:bold;
   margin-bottom:5px;
 }
 
-/* 🔗 按钮 */
 .link-btn{
   position:absolute;
   top:8px;
@@ -81,7 +80,7 @@ h1{
 <div class="container" id="container"></div>
 
 <script>
-// ✅ 数据（你的47人）
+
 const students = [
 {no:1,name:"邱穆芸",id:"242154",job:"副文书"},
 {no:2,name:"陈妍希",id:"242159",job:"副美术"},
@@ -93,61 +92,28 @@ const students = [
 {no:8,name:"陈钏宁",id:"242155",job:"正壁报"},
 {no:9,name:"李静恩",id:"242158",job:"正数学"},
 {no:10,name:"李开心",id:"240009",job:"无"},
-
 {no:11,name:"刘瑞恩",id:"242160",job:"副壁报"},
 {no:12,name:"黄禹嫣",id:"242164",job:"副财政"},
 {no:13,name:"妮娅",id:"242166",job:"正财政"},
 {no:14,name:"陈姿卉",id:"242162",job:"正辅导"},
 {no:15,name:"何汶宣",id:"242165",job:"副地理"},
 {no:16,name:"王歆茹",id:"242151",job:"无"},
-
-{no:17,name:"潘姿颖",id:"242147",job:"正美术"},
-{no:18,name:"施凯馨",id:"242150",job:"正地理"},
-{no:19,name:"陈渝恩",id:"242148",job:"副班长"},
-{no:20,name:"戴湘霖",id:"242157",job:"正文书"},
-
-{no:21,name:"王婧涵",id:"242152",job:"正国文"},
-{no:22,name:"许悦影",id:"242167",job:"无"},
-{no:23,name:"朱俊绅",id:"242189",job:"副数学"},
-{no:24,name:"陈毅祥",id:"242177",job:"正卫生"},
-{no:25,name:"谢承邑",id:"242190",job:"正电脑"},
-
-{no:26,name:"张智勇",id:"242176",job:"正历史"},
-{no:27,name:"何凯旭",id:"242173",job:"副体育"},
-{no:28,name:"赖家禾",id:"242194",job:"副媒体"},
-{no:29,name:"江致承",id:"242171",job:"无"},
-{no:30,name:"刘俊祥",id:"242186",job:"副服务"},
-
-{no:31,name:"卢隽益",id:"242187",job:"正班长"},
-{no:32,name:"刘宽辅",id:"242170",job:"副华文"},
-{no:33,name:"卢裕城",id:"242188",job:"副风纪"},
-{no:34,name:"黄康桀",id:"242191",job:"正服务"},
-{no:35,name:"伍思源",id:"242180",job:"正华文"},
-
-{no:36,name:"彭宇乐",id:"242181",job:"副历史"},
-{no:37,name:"潘家扬",id:"242169",job:"副英文"},
-{no:38,name:"陈晋佑",id:"242178",job:"副电脑"},
-{no:39,name:"陈有权",id:"242182",job:"副卫生"},
-{no:40,name:"余根权",id:"242175",job:"正体育"},
-
-{no:41,name:"黄凯杰",id:"242192",job:"正英文"},
-{no:42,name:"黄恩杰",id:"242183",job:"副图书"},
-{no:43,name:"黄俊熹",id:"242193",job:"正环保"},
-{no:44,name:"黄明杰",id:"242185",job:"正风纪"},
-{no:45,name:"叶峻睿",id:"242174",job:"副环保"},
-
-{no:46,name:"叶礼诚",id:"242172",job:"正媒体"},
 {no:47,name:"杨仁喆",id:"242184",job:"无"}
 ];
 
 const container = document.getElementById("container");
 
-// ✅ 渲染卡片
+// ⭐ 获取 URL 参数
+const urlParams = new URLSearchParams(window.location.search);
+const selectedId = urlParams.get("id");
+
 function render(list){
   container.innerHTML = "";
+
   list.forEach(s=>{
     const card = document.createElement("div");
     card.className = "card";
+    card.dataset.id = s.id;
 
     card.innerHTML = `
       <button class="link-btn">取得链接</button>
@@ -155,23 +121,31 @@ function render(list){
       <div class="name">${s.name}</div>
       <div>学号：${s.id}</div>
       <div>职务：${s.job}</div>
-      <div>校庆：-</div>
     `;
 
-    // 🔗 按钮功能
+    // 复制链接
     card.querySelector(".link-btn").onclick = ()=>{
-      const link = "https://dylanlaw1123.github.io/j3_04/?id=" + s.id;
+      const link = `${window.location.origin}${window.location.pathname}?id=${s.id}`;
       navigator.clipboard.writeText(link);
-      alert("已复制: " + link);
+      alert("已复制:\n" + link);
     };
 
     container.appendChild(card);
   });
+
+  // ⭐ 自动定位 + 高亮
+  if(selectedId){
+    const target = document.querySelector(`[data-id="${selectedId}"]`);
+    if(target){
+      target.classList.add("highlight");
+      target.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+  }
 }
 
 render(students);
 
-// 🔍 搜索功能
+// 搜索
 document.getElementById("search").addEventListener("input",e=>{
   const val = e.target.value.toLowerCase();
   const filtered = students.filter(s =>
@@ -181,18 +155,8 @@ document.getElementById("search").addEventListener("input",e=>{
   );
   render(filtered);
 });
+
 </script>
-
-<footer>
-  <p>
-    Spin Wheel:
-    <a href="https://dylanlaw1123.github.io/j3_04-spinwheel/" target="_blank">
-      https://dylanlaw1123.github.io/j3_04-spinwheel/
-    </a>
-  </p>
-
-  <p>2026 初三4班 | Made DylanLaw and ChatGPT.</p>
-</footer>
 
 </body>
 </html>
