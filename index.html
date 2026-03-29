@@ -9,6 +9,7 @@ body{
   font-family:"Microsoft YaHei",sans-serif;
   background:#eef1f5;
   padding:20px;
+  margin:0;
 }
 
 h1{
@@ -44,7 +45,6 @@ h1{
   transform:translateY(-3px);
 }
 
-/* ⭐ 高亮 */
 .card.highlight{
   border:3px solid #4a90e2;
   transform:scale(1.03);
@@ -72,6 +72,24 @@ h1{
 .link-btn:hover{
   background:#357abd;
 }
+
+/* 🔻 Footer */
+footer{
+  margin-top:40px;
+  text-align:center;
+  color:#555;
+  font-size:13px;
+}
+
+footer a{
+  color:#4a90e2;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer a:hover{
+  text-decoration:underline;
+}
 </style>
 </head>
 
@@ -85,7 +103,7 @@ h1{
 
 <script>
 
-// 🎉 校庆职位
+// 校庆
 function getEventRole(no){
   if(no == 31) return "主席";
   if(no == 13) return "副主席";
@@ -95,7 +113,6 @@ function getEventRole(no){
   return "-";
 }
 
-// 数据
 const students = [
 {no:1,name:"邱穆芸",id:"242154",job:"副文书"},
 {no:2,name:"陈妍希",id:"242159",job:"副美术"},
@@ -151,7 +168,6 @@ const students = [
 ];
 
 const container = document.getElementById("container");
-
 const urlParams = new URLSearchParams(window.location.search);
 const selectedId = urlParams.get("id");
 
@@ -207,6 +223,7 @@ document.getElementById("search").addEventListener("input",e=>{
 
 </script>
 
+<!-- 🔻 Footer -->
 <footer>
   <p>
     Spin Wheel:
