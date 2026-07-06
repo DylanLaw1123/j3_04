@@ -56,21 +56,37 @@ h1{
   margin-bottom:5px;
 }
 
-.link-btn{
+.btn-group{
   position:absolute;
   top:8px;
   right:8px;
+  display:flex;
+  gap:5px;
+}
+
+.link-btn, .copy-name-btn{
   font-size:10px;
   padding:3px 6px;
-  background:#4a90e2;
   color:white;
   border:none;
   border-radius:5px;
   cursor:pointer;
 }
 
+.link-btn{
+  background:#4a90e2;
+}
+
 .link-btn:hover{
   background:#357abd;
+}
+
+.copy-name-btn{
+  background:#7bb661;
+}
+
+.copy-name-btn:hover{
+  background:#5f9a47;
 }
 
 /* 🔻 Footer */
@@ -180,7 +196,10 @@ function render(list){
     card.dataset.id = s.id;
 
     card.innerHTML = `
-      <button class="link-btn">取得链接</button>
+      <div class="btn-group">
+        <button class="copy-name-btn">复制姓名</button>
+        <button class="link-btn">取得链接</button>
+      </div>
       <div>座号：${s.no}</div>
       <div class="name">${s.name}</div>
       <div>学号：${s.id}</div>
@@ -192,6 +211,11 @@ function render(list){
       const link = `${window.location.origin}${window.location.pathname}?id=${s.id}`;
       navigator.clipboard.writeText(link);
       alert("已复制链接:\n" + link);
+    };
+
+    card.querySelector(".copy-name-btn").onclick = ()=>{
+      navigator.clipboard.writeText(s.name);
+      alert("已复制姓名: " + s.name);
     };
 
     container.appendChild(card);
